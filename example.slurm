@@ -23,6 +23,6 @@ conda activate cs378-nlp-final-project
 cd nlp-final
 pip install --upgrade pip
 pip install -r requirements.txt
-python3 run.py --do_train --task nli --dataset snli --output_dir ./trained_model/
+python3 run.py --do_train --task qa --dataset ./BoolQ/boolq_perturbed.json --output_dir ./trained_model/
 
 # ---------------------------------------------------
