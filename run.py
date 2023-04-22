@@ -53,7 +53,11 @@ def main():
     if args.dataset.endswith('.json') or args.dataset.endswith('.jsonl'):
         dataset_id = None
         # Load from local json/jsonl file
-        dataset = datasets.load_dataset('json', data_files=args.dataset)
+        dataset = datasets.load_dataset('json', data_files=args.dataset, field="data", split="train")
+        dataset = dataset.train_test_split(test_size=0.2)
+        f = open("./dataset_quoref.json", "a")
+        print(dataset, file=f)
+        f.close()
         # f = open(str(args.dataset), "r")
         # dataset = json.load(f)
         # By default, the "json" dataset loader places all examples in the train split,
@@ -67,8 +71,9 @@ def main():
         # MNLI has two validation splits (one with matched domains and one with mismatched domains). Most datasets just have one "validation" split
         eval_split = 'validation_matched' if dataset_id == ('glue', 'mnli') else 'validation'
         # Load the raw data
+        print("DATASET ID:", dataset_id)
         dataset = datasets.load_dataset(*dataset_id)
-        f = open("./dataset.json", "a")
+        f = open("./dataset_squad.json", "a")
         print(dataset, file=f)
         f.close()
     

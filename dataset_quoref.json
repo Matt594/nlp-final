@@ -1,0 +1,76 @@
+DatasetDict({
+    train: Dataset({
+        features: ['dataset', 'confix', 'split', 'features', 'rows', 'config'],
+        num_rows: 2
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['title', 'url', 'paragraphs'],
+        num_rows: 113
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['row_idx', 'row', 'truncated_cells'],
+        num_rows: 357
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['row_idx', 'row', 'truncated_cells'],
+        num_rows: 357
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['row_idx', 'row', 'truncated_cells'],
+        num_rows: 357
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['id', 'title', 'context', 'question', 'answers'],
+        num_rows: 319
+    })
+})
+Dataset({
+    features: ['id', 'title', 'context', 'question', 'answers'],
+    num_rows: 319
+})
+Dataset({
+    features: ['train', 'validation'],
+    num_rows: 1
+})
+(Dataset({
+    features: ['train', 'validation'],
+    num_rows: 1
+}),)
+DatasetDict({
+    train: Dataset({
+        features: ['train', 'validation'],
+        num_rows: 1
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['data'],
+        num_rows: 1
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['id', 'title', 'context', 'question', 'answers'],
+        num_rows: 415
+    })
+})
+DatasetDict({
+    train: Dataset({
+        features: ['id', 'title', 'context', 'question', 'answers'],
+        num_rows: 332
+    })
+    test: Dataset({
+        features: ['id', 'title', 'context', 'question', 'answers'],
+        num_rows: 83
+    })
+})
