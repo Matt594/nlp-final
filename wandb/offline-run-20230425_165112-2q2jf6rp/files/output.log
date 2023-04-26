@@ -1,0 +1,10 @@
+
+{'train_runtime': 819.6749, 'train_samples_per_second': 1.435, 'train_steps_per_second': 0.179, 'train_loss': 4.3182489304315474, 'epoch': 3.0}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 147/147 [12:11<00:00,  5.00s/it]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 147/147 [12:11<00:00,  4.97s/it]
+Saving model checkpoint to ./original_model_data/original_trained_model/
+Configuration saved in ./original_model_data/original_trained_model/config.json
+Model weights saved in ./original_model_data/original_trained_model/pytorch_model.bin
+tokenizer config file saved in ./original_model_data/original_trained_model/tokenizer_config.json
+Special tokens file saved in ./original_model_data/original_trained_model/special_tokens_map.json

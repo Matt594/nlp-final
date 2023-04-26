@@ -53,12 +53,13 @@ def main():
     if args.dataset.endswith('.json') or args.dataset.endswith('.jsonl'):
         dataset_id = None
         # Load from local json/jsonl file
-        dataset = datasets.load_dataset('json', data_files=args.dataset, field="data", split="train")
-        dataset = dataset.train_test_split(test_size=0.2)
+        dataset = datasets.load_dataset('json', data_files=args.dataset, field="data")
         # By default, the "json" dataset loader places all examples in the train split,
         # so if we want to use a jsonl file for evaluation we need to get the "train" split
         # from the loaded dataset
         eval_split = 'train'
+        # for split, data in dataset.items():
+        #     data.to_json(f"./quoref/{split}.json")
     else:
         default_datasets = {'qa': ('squad',), 'nli': ('snli',)}
         dataset_id = tuple(args.dataset.split(':')) if args.dataset is not None else \
@@ -127,10 +128,12 @@ def main():
     # For an example of a valid compute_metrics function, see compute_accuracy in helpers.py.
     compute_metrics = None
     if args.task == 'qa':
+        # from quoref.compute_metrics import evaluate_contrast_sets
         # For QA, we need to use a tweaked version of the Trainer (defined in helpers.py)
         # to enable the question-answering specific evaluation metrics
         trainer_class = QuestionAnsweringTrainer
         eval_kwargs['eval_examples'] = eval_dataset
+        print(eval_dataset)
         metric = datasets.load_metric('squad')
         compute_metrics = lambda eval_preds: metric.compute(
             predictions=eval_preds.predictions, references=eval_preds.label_ids)
@@ -144,6 +147,16 @@ def main():
     def compute_metrics_and_store_predictions(eval_preds):
         nonlocal eval_predictions
         eval_predictions = eval_preds
+        with open("./debug.txt", "a") as f:
+            print(len(eval_preds.predictions), file=f)
+            print("\n", file=f)
+            for pred in eval_preds.predictions:
+                print(pred["id"], file=f)
+            print("\n", file=f)
+            print(len(eval_preds.label_ids), file=f)
+            print("\n", file=f)
+            for label in eval_preds.label_ids:
+                print(label["id"], file=f)
         return compute_metrics(eval_preds)
 
     # Initialize the Trainer object with the specified arguments and the model and dataset we loaded above
@@ -167,6 +180,7 @@ def main():
         #   and https://huggingface.co/transformers/main_classes/callback.html#transformers.TrainerCallback
 
     if training_args.do_eval:
+        print(eval_kwargs)
         results = trainer.evaluate(**eval_kwargs)
 
         # To add custom metrics, you should replace the "compute_metrics" function (see comments above).
@@ -199,6 +213,10 @@ def main():
                     example_with_prediction['predicted_label'] = int(eval_predictions.predictions[i].argmax())
                     f.write(json.dumps(example_with_prediction))
                     f.write('\n')
+
+        # Original model tested on merged data
+        # Merged model tested on merged data
+        # Merged model w/ boosting tested on merged data
 
 
 if __name__ == "__main__":

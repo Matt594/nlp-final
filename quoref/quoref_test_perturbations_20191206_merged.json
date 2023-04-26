@@ -2966,17 +2966,6 @@
               "original_id": "35cb136f8661a96b186978d8e6a98cf12e2cbc01"
             },
             {
-              "question": "What is the ethnicity of the person who falls in love with James?",
-              "id": "e8cf6df6d4efc337148d9ebbcf20ea1a62b00de5",
-              "answers": [
-                {
-                  "text": "Kiwi-Asian",
-                  "answer_start": 477
-                }
-              ],
-              "original_id": "63e7be97b32cefbf0e7d63f8c7d86fd763052e05"
-            },
-            {
               "question": "What is the last name of the person who falls in love with James?",
               "id": "bfd6c540673ac30b57a9542f3642e03f1c972fe8",
               "answers": [

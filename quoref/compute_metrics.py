@@ -8,7 +8,8 @@ from typing import Dict, Tuple, List, Any, Set
 import argparse
 from collections import defaultdict
 import numpy as np
-from allennlp.tools import drop_eval
+# import allennlp.tools
+# from allennlp.tools import drop_eval
 
 
 CONSISTENCY_F1_THRESHOLD = 0.8
@@ -69,10 +70,10 @@ def get_instance_metrics(annotations: Dict[str, Any],
         if query_id in predicted_answers:
             predicted = predicted_answers[query_id]
             gold_answer = tuple(candidate_answers)
-            em_score, f1_score = drop_eval.get_metrics(predicted, gold_answer)
-            if gold_answer[0].strip() != "":
-                max_em_score = max(max_em_score, em_score)
-                max_f1_score = max(max_f1_score, f1_score)
+            # em_score, f1_score = drop_eval.get_metrics(predicted, gold_answer)
+            # if gold_answer[0].strip() != "":
+            #     max_em_score = max(max_em_score, em_score)
+            #     max_f1_score = max(max_f1_score, f1_score)
         else:
             print("Missing prediction for question: {}".format(query_id))
             max_em_score = 0.0
