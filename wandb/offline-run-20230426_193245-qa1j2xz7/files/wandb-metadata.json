@@ -1,0 +1,32 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.9.16",
+    "heartbeatAt": "2023-04-27T00:32:46.718077",
+    "startedAt": "2023-04-27T00:32:45.782456",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--do_train",
+        "--task",
+        "qa",
+        "--dataset",
+        "./quoref/quoref_original_formatted.json",
+        "--output_dir",
+        "./roberta_model_data/original_trained_model/",
+        "--model",
+        "roberta-base"
+    ],
+    "state": "running",
+    "program": "/Users/matthewescobar/Desktop/UTClasses/Sp23/NLP/nlp-final/run.py",
+    "codePath": "run.py",
+    "git": {
+        "remote": "https://github.com/Matt594/nlp-final.git",
+        "commit": "74988cac707d018788f2621c13ab655d9fdf65ab"
+    },
+    "email": "matthew.escobar@me.com",
+    "root": "/Users/matthewescobar/Desktop/UTClasses/Sp23/NLP/nlp-final",
+    "host": "MacBook-Pro.local",
+    "username": "matthewescobar",
+    "executable": "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/bin/python3"
+}

@@ -1,0 +1,19 @@
+
+Metrics on original dataset
+Exact-match accuracy 66.75
+F1 score 74.48
+
+Metrics on perturbed dataset
+Exact-match accuracy 18.34
+F1 score 25.71
+
+Metrics on combined dataset
+Exact-match accuracy 36.39
+F1 score 43.90
+
+Metrics on contrast sets:
+Number of contrast sets: 415
+Max contrast set size: 11
+Mean set size: 2.6819277108433734 (+/- 1.236020097539383)
+Number of questions changed: 648 (92.83667621776505%)
+Consistency: 9.16

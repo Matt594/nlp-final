@@ -1,0 +1,10 @@
+
+{'train_runtime': 5367.5497, 'train_samples_per_second': 0.274, 'train_steps_per_second': 0.035, 'train_loss': 2.451867872668851, 'epoch': 3.0}
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 186/186 [1:29:19<00:00, 23.67s/it]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 186/186 [1:29:19<00:00, 28.81s/it]
+Saving model checkpoint to ./roberta_model_data/original_trained_model/
+Configuration saved in ./roberta_model_data/original_trained_model/config.json
+Model weights saved in ./roberta_model_data/original_trained_model/pytorch_model.bin
+tokenizer config file saved in ./roberta_model_data/original_trained_model/tokenizer_config.json
+Special tokens file saved in ./roberta_model_data/original_trained_model/special_tokens_map.json

@@ -1,0 +1,16 @@
+  0%|                                                                                                             | 0/294 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/Users/matthewescobar/Desktop/UTClasses/Sp23/NLP/nlp-final/run.py", line 235, in <module>
+    main()
+  File "/Users/matthewescobar/Desktop/UTClasses/Sp23/NLP/nlp-final/run.py", line 189, in main
+    trainer.train()
+  File "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/lib/python3.9/site-packages/transformers/trainer.py", line 1365, in train
+    tr_loss_step = self.training_step(model, inputs)
+  File "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/lib/python3.9/site-packages/transformers/trainer.py", line 1958, in training_step
+    loss.backward()
+  File "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/lib/python3.9/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/lib/python3.9/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/Users/matthewescobar/opt/anaconda3/envs/nlp_final/lib/python3.9/site-packages/wandb/wandb_torch.py", line 264, in <lambda>
+    handle = var.register_hook(lambda grad: _callback(grad, log_track))
+KeyboardInterrupt

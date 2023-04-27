@@ -23,8 +23,23 @@ conda activate cs378-nlp-final-project
 cd nlp-final
 pip install --upgrade pip
 pip install -r requirements.txt
-python3 run.py --do_train --task qa --dataset ./quoref/train_quoref_original_formatted.json --output_dir ./original_model_data/original_trained_model/
-python3 run.py --do_eval --task qa --dataset ./quoref/test_quoref_original_formatted.json --model ./original_model_data/original_trained_model/ --output_dir ./original_model_data/original_eval_output/
-python3 run.py --do_eval --task qa --dataset ./quoref/test_quoref_perturbed_formatted.json --model ./original_model_data/original_trained_model/ --output_dir ./original_model_data/perturbed_eval_output/
+
+# ELECTRA on original
+
+python3 run.py --do_train --task qa --dataset ./quoref/quoref_original_formatted.json --output_dir ./electra_model_data/original_trained_model/
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_original_formatted.json --model ./electra_model_data/original_trained_model/ --output_dir ./electra_model_data/original_eval_output/
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_perturbed_formatted.json --model ./electra_model_data/original_trained_model/ --output_dir ./electra_model_data/perturbed_eval_output/
 
 # ---------------------------------------------------
+
+# BERT on original
+python3 run.py --do_train --task qa --dataset ./quoref/quoref_original_formatted.json --output_dir ./bert_model_data/original_trained_model/ --model bert-base-cased
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_original_formatted.json --model ./bert_model_data/original_trained_model/ --output_dir ./bert_model_data/original_eval_output/
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_perturbed_formatted.json --model ./bert_model_data/original_trained_model/ --output_dir ./bert_model_data/perturbed_eval_output/
+
+# ---------------------------------------------------
+
+# roberta on original
+python3 run.py --do_train --task qa --dataset ./quoref/quoref_original_formatted.json --output_dir ./roberta_model_data/original_trained_model/ --model roberta-base
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_original_formatted.json --model ./roberta_model_data/original_trained_model/ --output_dir ./roberta_model_data/original_eval_output/
+python3 run.py --do_eval --task qa --dataset ./quoref/quoref_perturbed_formatted.json --model ./roberta_model_data/original_trained_model/ --output_dir ./roberta_model_data/perturbed_eval_output/

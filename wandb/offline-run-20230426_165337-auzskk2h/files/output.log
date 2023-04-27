@@ -1,0 +1,10 @@
+
+{'train_runtime': 984.874, 'train_samples_per_second': 1.493, 'train_steps_per_second': 0.189, 'train_loss': 4.084915325205813, 'epoch': 3.0}
+100%|███████████████████████████████████████████████████████████████████████████████████████████| 186/186 [16:15<00:00,  4.16s/it]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|███████████████████████████████████████████████████████████████████████████████████████████| 186/186 [16:15<00:00,  5.25s/it]
+Saving model checkpoint to ./electra_model_data/original_trained_model/
+Configuration saved in ./electra_model_data/original_trained_model/config.json
+Model weights saved in ./electra_model_data/original_trained_model/pytorch_model.bin
+tokenizer config file saved in ./electra_model_data/original_trained_model/tokenizer_config.json
+Special tokens file saved in ./electra_model_data/original_trained_model/special_tokens_map.json

@@ -1,0 +1,10 @@
+
+{'train_runtime': 5614.8026, 'train_samples_per_second': 0.265, 'train_steps_per_second': 0.033, 'train_loss': 2.563175980762769, 'epoch': 3.0}
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 186/186 [1:33:27<00:00, 28.56s/it]
+Training completed. Do not forget to share your model on huggingface.co/models =)
+100%|█████████████████████████████████████████████████████████████████████████████████████████| 186/186 [1:33:27<00:00, 30.15s/it]
+Saving model checkpoint to ./bert_model_data/original_trained_model/
+Configuration saved in ./bert_model_data/original_trained_model/config.json
+Model weights saved in ./bert_model_data/original_trained_model/pytorch_model.bin
+tokenizer config file saved in ./bert_model_data/original_trained_model/tokenizer_config.json
+Special tokens file saved in ./bert_model_data/original_trained_model/special_tokens_map.json

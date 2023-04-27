@@ -5,9 +5,8 @@ from helpers import prepare_dataset_nli, prepare_train_dataset_qa, \
     prepare_validation_dataset_qa, QuestionAnsweringTrainer, compute_accuracy
 import os
 import json
-
+from ensemble_transformers import EnsembleConfig, EnsembleModelForSequenceClassification
 NUM_PREPROCESSING_WORKERS = 2
-
 
 def main():
     argp = HfArgumentParser(TrainingArguments)
@@ -168,6 +167,8 @@ def main():
         tokenizer=tokenizer,
         compute_metrics=compute_metrics_and_store_predictions
     )
+    print(training_args)
+
     # Train and/or evaluate
     if training_args.do_train:
         trainer.train()
@@ -213,10 +214,6 @@ def main():
                     example_with_prediction['predicted_label'] = int(eval_predictions.predictions[i].argmax())
                     f.write(json.dumps(example_with_prediction))
                     f.write('\n')
-
-        # Original model tested on merged data
-        # Merged model tested on merged data
-        # Merged model w/ boosting tested on merged data
 
 
 if __name__ == "__main__":

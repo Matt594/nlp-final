@@ -44,6 +44,45 @@ def _get_questions_and_answers_from_data(annotations: Dict[str, Any]) -> Dict[st
                 questions_dict[query_id] = qa_pair["question"]
     return answers_dict, questions_dict
 
+def compute_drop_f1(predicted_answer, true_answer):
+    predicted_answer = predicted_answer.lower().strip()
+    true_answer = true_answer.lower().strip()
+
+    predicted_tokens = set(predicted_answer.split())
+    true_tokens = set(true_answer.split())
+
+    # Compute precision
+    if len(predicted_tokens) == 0:
+        precision = 0.0
+    else:
+        precision = len(predicted_tokens.intersection(true_tokens)) / len(predicted_tokens)
+
+    # Compute recall
+    if len(true_tokens) == 0:
+        recall = 0.0
+    else:
+        recall = len(predicted_tokens.intersection(true_tokens)) / len(true_tokens)
+
+    # Compute F1 score
+    if precision == 0 and recall == 0:
+        f1 = 0.0
+    else:
+        f1 = 2 * precision * recall / (precision + recall)
+
+    return f1
+
+def compute_em_score(predicted_answer, true_answer):
+    predicted_answer = predicted_answer.lower().strip()
+    true_answer = true_answer.lower().strip()
+
+    # Compare predicted answer to true answer
+    if predicted_answer == true_answer:
+        em_score = 1.0
+    else:
+        em_score = 0.0
+
+    return em_score
+
 
 def get_instance_metrics(annotations: Dict[str, Any],
                          predicted_answers: Dict[str, Any]) -> Dict[str, Tuple[float, float]]:
@@ -68,12 +107,13 @@ def get_instance_metrics(annotations: Dict[str, Any],
         max_em_score = 0.0
         max_f1_score = 0.0
         if query_id in predicted_answers:
-            predicted = predicted_answers[query_id]
-            gold_answer = tuple(candidate_answers)
-            # em_score, f1_score = drop_eval.get_metrics(predicted, gold_answer)
-            # if gold_answer[0].strip() != "":
-            #     max_em_score = max(max_em_score, em_score)
-            #     max_f1_score = max(max_f1_score, f1_score)
+            predicted = predicted_answers[query_id]["predicted_answer"]
+            gold_answer = tuple(candidate_answers)[0]
+            em_score = compute_em_score(predicted, gold_answer)
+            f1_score = compute_drop_f1(predicted, gold_answer)
+            if gold_answer[0].strip() != "":
+                max_em_score = max(max_em_score, em_score)
+                max_f1_score = max(max_f1_score, f1_score)
         else:
             print("Missing prediction for question: {}".format(query_id))
             max_em_score = 0.0
