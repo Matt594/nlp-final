@@ -97,6 +97,7 @@ def get_instance_metrics(annotations: Dict[str, Any],
     same format as the predicted answers file.
     """
     instance_metrics: Dict[str, Tuple[float, float]] = {}
+    # print(annotations)
     if "data" in annotations:
         # We're looking at annotations in the original data format. Let's extract the answers.
         annotated_answers, questions_dict = _get_questions_and_answers_from_data(annotations)
@@ -104,6 +105,7 @@ def get_instance_metrics(annotations: Dict[str, Any],
         questions_dict = None
         annotated_answers = annotations
     for query_id, candidate_answers in annotated_answers.items():
+        # print(query_id)
         max_em_score = 0.0
         max_f1_score = 0.0
         if query_id in predicted_answers:

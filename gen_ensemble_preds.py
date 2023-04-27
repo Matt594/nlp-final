@@ -21,6 +21,8 @@ def gen_preds(bert_output, electra_output, roberta_output):
         answer = max(votes, key=votes.get)
         for i in range(len(ballots)):
             if ballots[i][key]['predicted_answer'] == answer:
+                if key == "gi":
+                    print(key)
                 answers[key] = ballots[i][key]
                 break
 
